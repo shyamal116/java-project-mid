@@ -1,1 +1,1053 @@
-q5
+import java.util.*;
+ 
+class movie{     //parent class of all type of audience
+    private String name,principle,type;
+    movie(String Name,String Principle,String Type){
+        name=Name;
+        principle=Principle;
+        type=Type;
+    }
+    public String getName(){
+        return name;
+        
+    }
+    public String getPrinciple(){
+        return principle;
+    }
+    public String getType(){
+        return type;
+    }
+    
+    public void printOutput(){  //overriding of printOutput function
+        
+    }
+    
+    public void setArr(int d,int m,int y,String s1,String s2)   //overriding of setArr function
+    {
+        
+    }
+     
+}
+ 
+class event extends movie {    //class of event type person
+    private int d,m,y;
+    private String ev,ven;
+    event(String Name,int D,int M,int Y,String Ev,String Ven,String Principle,String Type){
+        super(Name,Principle,Type);
+        d=D;
+        m=M;
+        y=Y;
+        ev=Ev;
+        ven=Ven;
+    }
+     
+    public String getName(){
+        return super.getName();
+    }
+    public String getPrinciple(){
+        return super.getPrinciple();
+    }
+    public String getType(){
+        return super.getType();
+    }
+    
+    public String getEv(){
+        return ev;
+    }
+    public String getVen(){
+        return ven;
+    }
+    public int getD(){
+        return d;
+    }
+    public int getM(){
+        return m;
+    }
+    public int getY(){
+        return y;
+    }
+    
+    public void printOutput(){   //printOutput function
+        System.out.println(getName()+" "+getD()+"-"+getM()+"-"+getY()+" "+getEv()+" "+getVen());
+    }
+       
+}
+ 
+class breaker extends movie{  //class for breaker type person
+    private int expertise,horoscope;
+    
+    breaker(String Name,int Expertise,int Horoscope,String Principle,String Type){
+        super(Name,Principle,Type);
+        expertise=Expertise;
+        horoscope=Horoscope;
+    }
+    public String getName(){
+         return super.getName();
+    }
+    public String getPrinciple(){
+        return super.getPrinciple();
+    }
+    public String getType(){
+        return super.getType();
+    }
+     public int getExpertise(){
+        return expertise;
+    }
+      public int getHoroscope(){
+        return horoscope;
+    } 
+      public void printOutput(){   //printOutput function
+        System.out.println(getName()+" "+getExpertise()+" "+getHoroscope());
+    }
+}
+ 
+class brand extends movie {  //class for brand type person
+    private String brandName,salesName;
+    
+    brand(String Name,String BrandName,String SalesName,String Principle,String Type){
+        super(Name,Principle,Type);
+        brandName=BrandName;
+        salesName=SalesName;
+    }
+    public String getName(){
+         return super.getName();
+    }
+    public String getPrinciple(){
+        return super.getPrinciple();
+    }
+    public String getType(){
+        return super.getType();
+    }
+     public String getBrandName(){
+        return brandName;
+    }
+     public String getSalesName(){
+        return salesName;
+    }
+     
+      public void printOutput(){   //printOutput function
+        System.out.println(getName()+" "+getBrandName()+" "+getSalesName());
+    }
+    
+}
+ 
+ 
+class commoner extends movie{   //class for commoner type person
+    commoner(String Name,String Principle,String Type){
+        super(Name,Principle,Type);
+    }
+    public String getName(){
+        return super.getName();
+    }
+    public String getPrinciple(){
+        return super.getPrinciple();
+    }
+    public String getType(){
+        return super.getType();
+    }
+    public void printOutput(){   //printOutput function
+         System.out.println(getName());
+    }
+}
+ 
+ 
+class VIP extends movie{   //class for VIP type person 
+    private int p;
+    private int arr1[][]=new int[500][3];
+    private String arr2[][]=new String[500][2];
+    
+    VIP(String Name,int P,String Principle,String Type){
+        super(Name,Principle,Type);
+        p=P;
+    }
+    private int l=0;
+    public void setArr(int d,int m,int y,String s1,String s2)  //setter function of 2d array
+    {
+        arr1[l][0]=d;
+        arr1[l][1]=m;
+        arr1[l][2]=y;
+        arr2[l][0]=s1;
+        arr2[l][1]=s2;
+        l++;
+    }
+    
+    public String getName(){
+        return super.getName();
+    }   
+    public String getPrinciple(){
+        return super.getPrinciple();
+    }
+    public String getType(){
+        return super.getType();
+    }
+    public void printOutput(){   //printOutput function
+         
+         System.out.println( getName() );
+         for(int i=0;i<p;i++)
+         {
+             System.out.println(arr1[i][0]+"-"+arr1[i][1]+"-"+arr1[i][2]+" "+arr2[i][0]+" "+arr2[i][1]); 
+         }
+    }
+}
+
+class seating //class of seating principle
+{
+    private String name,type;
+    
+    seating(String Name,String Type)
+    {
+        name=Name;
+        type=Type;
+    }
+    
+    public String getName(){
+        return name;
+    }
+    public String getType(){
+        return type;
+    }
+}
+
+class backbencher extends seating //class of backbencher seating principle type
+{
+    int j,c,d;
+    backbencher(String Type,String Name)
+    {
+        super(Type,Name); 
+    }
+    
+    public String getName(){
+        return super.getName();
+    }
+    public String getType(){
+        return super.getType();
+    }
+    
+    
+}
+
+class celebrity extends seating  //class of celebrity seating principle type
+{
+    int j,c,d;
+    celebrity(String Type,String Name)
+    {
+        super(Type,Name); 
+    }
+    
+    public String getName(){
+        return super.getName();
+    }
+    public String getType(){
+        return super.getType();
+    }
+    
+    
+}
+
+class crowdloving extends seating  //class of crowdloving seating principle type
+{
+    int j,c,d;
+    crowdloving(String Type,String Name)
+    {
+        super(Type,Name); 
+    }
+    
+    public String getName(){
+        return super.getName();
+    }
+    public String getType(){
+        return super.getType();
+    }
+    
+    
+}
+
+class sparseLoving extends seating  //class of sparseLoving seating principle type 
+{
+    int j,c,d;
+    sparseLoving(String Type,String Name)
+    {
+        super(Type,Name); 
+    }
+    
+    public String getName(){
+        return super.getName();
+    }
+    public String getType(){
+        return super.getType();
+    }
+    
+    
+}
+
+class entranceLoving extends seating  //class of entranceLoving seating principle type
+{
+    int j,c,d;
+    entranceLoving(String Type,String Name)
+    {
+        super(Type,Name); 
+    }
+    
+    public String getName(){
+        return super.getName();
+    }
+    public String getType(){
+        return super.getType();
+    }
+    
+    
+}
+
+class reception   //parent class of all receptnist class 
+{
+    String type,name;
+    
+    reception(String Type,String Name)
+    {
+        type=Type;
+        name=Name;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getType(){
+        return type;
+    }
+    public void serve(movie mv[],int k,movie mv1[],int c)
+    {
+        
+    }
+    public void oneserve(movie mv[],int k,movie mv1[],int c,String str[])
+    {
+        
+    }
+    
+    public void print(movie mov[][],int m,int n)
+    {
+        
+    }
+     
+    public void setArr(String str)
+    {
+        
+    }
+}
+
+class first extends reception  //class of first receptnist type 
+{
+    int j,c,d,l=0;
+    
+    String arr[]=new String[500000];
+    
+    first(String Type,String Name)
+    {
+        super(Type,Name); 
+    }
+    
+    public String getName(){
+        return super.getName();
+    }
+    public String getType(){
+        return super.getType();
+    }
+    
+    public void setArr(String str)
+    {
+        arr[l]=str;
+        l++;
+    }
+    
+    public void serve(movie mv[],int k,movie mv1[],int c)
+    {
+        loop:for(j=0;j<k;j++)
+                   {
+                       if(mv[j]!=null)
+                       {
+                           mv1[c]=mv[j];
+                           mv[j]=null;
+                           break loop;
+                       }
+                   }
+    }
+    
+    public void print(movie mov[][],int m,int n)
+    {
+        System.out.println(getName());
+        int p=0,z=0,i;
+        
+        for(i=0;i<m;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                for(p=0;p<l;p++)
+                {
+                  if(mov[i][j]!=null&&arr[p]!=null)
+                  {    
+                    if( (mov[i][j].getName() ).compareTo(arr[p])==0 )
+                    {
+                        z=(n*i)+(j+1);
+                        System.out.println(z+" "+mov[i][j].getName());
+                    }
+                  }
+                }
+            }
+        }
+        
+    }
+    
+}
+
+class methodological extends reception  //class of methodological receptnist type
+{
+    int j,d,l=0;
+    methodological(String Type,String Name)
+    {
+        super(Type,Name); 
+    }
+    String arr[]=new String[500000];
+    
+    public void setArr(String str)
+    {
+        arr[l]=str;
+        l++;
+    }
+    
+    public String getName(){
+        return super.getName();
+    }
+    public String getType(){
+        return super.getType();
+    }
+    public void serve(movie mv[],int k,movie mv1[],int c){
+                   String s="z9";
+                   for(j=0;j<k;j++)
+                   {
+                       if((s).compareTo(mv[j].getName())>0)
+                       {
+                           d=j;
+                           s=mv[j].getName();
+                       }
+                   }
+                       mv1[c]=mv[d];
+                       mv[d]=null;
+    }
+    public void print(movie mov[][],int m,int n)
+    {
+        System.out.println(getName());
+        int p=0,i;
+        
+        for(i=0;i<m;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                for(p=0;p<l;p++)
+                {
+                  if(mov[i][j]!=null&&arr[p]!=null)
+                  {    
+                    if( (mov[i][j].getName() ).compareTo(arr[p])==0 )
+                    {
+                        System.out.println(mov[i][j].getName());
+                    }
+                  }
+                }
+            }
+        }
+        
+    }
+}
+
+class OnePerType extends reception  //class of OnePerType receptnist type 
+{
+    int i,p=0;
+    int j,d;
+    int z=0;
+    
+    String arrName[]=new String[500000];
+    String arrType[]=new String[500000];
+    
+    OnePerType(String Type,String Name)
+    {
+        super(Type,Name); 
+    }
+
+    public String getName(){
+        return super.getName();
+    }
+    public String getType(){
+        return super.getType();
+    }
+    public void oneserve(movie mv[],int k,movie mv1[],int c,String str[])
+    {
+        
+        loop:for(i=z;i<=5;i++)
+        {
+            if(i==5)
+              i=0; 
+            for(j=0;j<k;j++)
+            {
+              if(mv[j]!=null)
+              {
+                if((mv[j].getType()).compareTo(str[i])==0)
+                {
+                    mv1[c]=mv[j];
+                    mv[j]=null;
+                    arrName[p]=mv1[c].getName();
+                    arrType[p]=mv1[c].getType();
+                    p++;
+                    if(i!=4)
+                    z=i+1;
+                    else
+                    z=0;
+                    break loop;
+                }
+              }
+            }
+           
+        }
+    }
+    
+    public void print(movie mov[][],int m,int n)
+    {
+        System.out.println(getName());
+        
+        for(i=0;i<m;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                for(d=0;d<p;d++)
+                {
+                  if(mov[i][j]!=null&&arrName[d]!=null)
+                  {    
+                    if( (mov[i][j].getName() ).compareTo(arrName[d])==0 )
+                    {
+                        System.out.println(arrType[d]+" "+mov[i][j].getName());
+                        //System.out.println(mov[i][j].getName());
+                    }
+                  }
+                }
+            }
+        }
+    }
+    
+}
+
+class VIPR extends reception  //class of VIPR receptnist type
+{
+    int j,c,d,l=0;
+    VIPR(String Type,String Name)
+    {
+        super(Type,Name); 
+    }
+    
+    String arr[]=new String[500000];
+    public void setArr(String str)
+    {
+        arr[l]=str;
+        l++;
+    }
+    
+    public String getName(){
+        return super.getName();
+    }
+    public String getType(){
+        return super.getType();
+    }
+    public void serve(movie mv[],int k,movie mv1[],int c)
+    {
+         loop:for(j=0;j<k;j++)
+                   {
+                       if((mv[j].getType()).compareTo("VIP")==0)
+                       {
+                           d=j;
+                           break loop;
+                       }
+                   }
+                       mv1[c]=mv[d];
+                       c++;
+                       mv[d]=null;
+        
+    }
+    public void print(movie mov[][],int m,int n)
+    {
+        System.out.println(getName());
+        int p=0,i;
+        
+        for(i=0;i<m;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                for(p=0;p<l;p++)
+                {
+                  if(mov[i][j]!=null&&arr[p]!=null)
+                  {
+                    if( (mov[i][j].getName() ).compareTo(arr[p])==0 )
+                    {
+                        System.out.println(mov[i][j].getName());
+                    }
+                  }
+                  
+                }
+            }
+        }
+    }
+    
+}
+
+class breakerR extends reception  //class of breakerR receptnist type
+{
+    int j,c,d,i;
+    breakerR(String Type,String Name)
+    {
+        super(Type,Name); 
+    }
+    
+    public String getName(){
+        return super.getName();
+    }
+    public String getType(){
+        return super.getType();
+    }
+    public void serve(movie mv[],int k,movie mv1[],int c)
+    {
+        
+                   loop:for(j=0;j<k;j++)
+                   {
+                       if((mv[j].getType()).compareTo("breaker")==0)
+                       {
+                           d=j;
+                           break loop;
+                       }
+                   }
+                       mv1[c]=mv[d];
+                       mv[d]=null;
+    }
+    public void print(movie mov[][],int m,int n)
+    {
+        System.out.println(getName());
+    }
+}
+
+ 
+class TestClass{
+ 
+    public static void main(String[] args)throws java.lang.Exception {   //main function
+       int t,i,j,c,d=0,k;
+       Scanner sc = new Scanner(System.in);
+       t=sc.nextInt();
+       while(t!=0)               //while body
+       {
+           int m,n;
+           m=sc.nextInt();
+           n=sc.nextInt();
+           k=sc.nextInt();
+           movie mv[]=new movie[k+2];
+           
+           for(i=0;i<k;i++)    //taking input
+           {
+               String type=sc.next();
+               String principle=sc.next();
+               String name=sc.next();
+            
+               if( (type).compareTo("event")==0)   //taking input of event type
+               {
+                    int day,mon,year;
+                    String ev,ven;
+                    day=sc.nextInt();
+                    mon=sc.nextInt();
+                    year=sc.nextInt();
+                    ev=sc.next();
+                    ven=sc.next();
+                    
+                    mv[i]=new event(name,day,mon,year,ev,ven,principle,type);
+               }
+               
+               else if( (type).compareTo("breaker")==0)   //taking input of breaker type
+               {
+                    int expertise,horoscope;
+                    expertise=sc.nextInt();
+                    horoscope=sc.nextInt();
+                    mv[i]=new breaker(name,expertise,horoscope,principle,type);
+               }
+               else if( (type).compareTo("brand")==0)   //taking input of brand type
+               {
+                   String brandName,salesName;
+                   brandName=sc.next();
+                   salesName=sc.next();  
+                   mv[i]=new brand(name,brandName,salesName,principle,type);
+               }
+               else if( (type).compareTo("VIP")==0)   //taking input of VIP type
+               {
+                   int p;
+                   p=sc.nextInt();
+                    VIP v=new VIP(name,p,principle,type);    //intentiating VIP type object
+                   for(j=0;j<p;j++)
+                   {
+                       int day,mon,year;
+                       String ev,ven;
+                       day=sc.nextInt();
+                       mon=sc.nextInt();
+                       year=sc.nextInt();
+                       ev=sc.next();
+                       ven=sc.next();
+                       
+                       v.setArr(day,mon,year,ev,ven);
+                   }
+                   mv[i]=v;
+                   
+               }
+               
+                else if( (type).compareTo("commoner")==0)   //taking input of commoner type
+               {
+                   mv[i] = new commoner(name,principle,type);
+               }
+               
+           }
+        
+        
+          
+          movie mv1[]=new movie[10000];
+          
+           int r,rp=0;
+           r=sc.nextInt();
+           
+           reception recept[]=new reception[r];
+           
+           for(i=0;i<r;i++)
+           {
+               String type,name;
+               type=sc.next();
+               name=sc.next();
+               if((type).compareTo("first")==0)
+               {
+                   recept[i]=new first(type,name);
+               }
+               else if((type).compareTo("methodological")==0)
+               {
+                   recept[i]=new methodological(type,name);
+               }
+               else if((type).compareTo("OnePerType")==0)
+               {
+                   recept[i]=new OnePerType(type,name);
+               }
+               else if((type).compareTo("VIP")==0)
+               {
+                   recept[i]=new VIPR(type,name);
+               }
+               else if((type).compareTo("breaker")==0)
+               {
+                   recept[i]=new breakerR(type,name);
+               }
+           }
+           
+           String str[]=new String[5];
+           str[0]="breaker";
+           str[1]="VIP";
+           str[2]="commoner";
+           str[3]="event";
+           str[4]="brand";
+           
+           c=0;
+            
+          loop1:while(true)
+           {
+             for(i=0;i<r;i++)
+             {
+               if((recept[i].getType()).compareTo("first")==0)
+               {
+                    int count=0;
+                    for(j=0;j<k;j++)
+                    {
+                      if(mv[j]!=null)
+                      count=1;
+                    }
+                    if(count==0)
+                    break loop1;
+                   
+                   loop2:for(j=0;j<k;j++)
+                   {
+                       if(mv[j]!=null)
+                       {
+                           mv1[c]=mv[j];
+                           mv[j]=null;
+                           recept[i].setArr(mv1[c].getName());
+                            c++;
+                           break loop2;
+                       }
+                   } 
+               }
+               else if((recept[i].getType()).compareTo("methodological")==0)
+               { 
+                   int count=0;
+                   for(j=0;j<k;j++)
+                   {
+                      if(mv[j]!=null)
+                      count=1;
+                   }
+                    if(count==0)
+                    break loop1;
+                    
+                   d=0;
+                   String s="zz";
+                   for(j=0;j<k;j++)
+                   { 
+                         if( mv[j]!=null)
+                         {
+                           int v=(s).compareTo( mv[j].getName() );
+                          
+                           if(v>0)
+                           {
+                           d=j;
+                           s=mv[j].getName();
+                           }
+                         }
+                   }     
+                 mv1[c]=mv[d];
+                 mv[d]=null;
+                 recept[i].setArr(mv1[c].getName());
+                 c++;
+                  
+               }
+               else if((recept[i].getType()).compareTo("OnePerType")==0)
+               { 
+                   int count=0;
+                   for(j=0;j<k;j++)
+                   {
+                      if(mv[j]!=null)
+                      count=1;
+                   }
+                    if(count==0)
+                    
+                    break loop1;
+                    recept[i].oneserve(mv,k,mv1,c,str);
+                    c++;
+               }
+               else if((recept[i].getType()).compareTo("VIP")==0)
+               {
+                    int count=0;
+                   for(j=0;j<k;j++)
+                   {
+                      if(mv[j]!=null)
+                      count=1;
+                   }
+                    if(count==0)
+                    break loop1;
+                   
+                   d=-1;
+                    loop:for(j=0;j<k;j++)
+                   {
+                      if(mv[j]!=null)
+                      {
+                       if((mv[j].getType()).compareTo("VIP")==0)
+                       {
+                           d=j;
+                           break loop;
+                       }
+                      }
+                   }
+                   if(d!=-1){
+                       mv1[c]=mv[d];
+                       recept[i].setArr(mv1[c].getName());
+                       c++;
+                       mv[d]=null;
+                        
+                   } 
+               }
+               else if((recept[i].getType()).compareTo("breaker")==0)
+               {
+                    int count=0;
+                   for(j=0;j<k;j++)
+                   {
+                      if(mv[j]!=null)
+                      count=1;
+                   }
+                    if(count==0)
+                    break loop1;
+                    
+                   d=-1;
+                    loop:for(j=0;j<k;j++)
+                   {
+                      if(mv[j]!=null)
+                      {
+                       if((mv[j].getType()).compareTo("breaker")==0)
+                       {
+                           d=j;
+                           break loop;
+                       }
+                      }
+                   }
+                   if(d!=-1)
+                   {
+                       mv1[c]=mv[d];
+                       mv[d]=null;
+                       c++;
+                   } 
+               }
+             }
+               int count=0;
+               for(j=0;j<k;j++)
+               {
+                   if(mv[j]!=null)
+                   count=1;
+               }
+               if(count==0)
+               break loop1; 
+           } 
+            
+           movie mov[][]=new movie[1000][1000];
+           
+          for(i=0;i<k;i++)
+          { 
+             if(mv1[i]!=null)
+             {
+              if( (mv1[i].getPrinciple()).compareTo("BB")==0 )
+              { 
+                  int z=0;
+                  for(c=m-1;c>=0;c--)
+                  {
+                      for(d=n-1;d>=0;d--)
+                      {
+                          if(mov[c][d]==null)
+                          {
+                              mov[c][d]=mv1[i];
+                              z=1;
+                              break;
+                          }
+                      }
+                      if(z==1)
+                      break;
+                  } 
+              }
+              
+              else if((mv1[i].getPrinciple()).compareTo("EL")==0 )
+              {
+                   int z=0;
+                  for(c=0;c<n;c++)
+                  {
+                      for(d=0;d<m;d++)
+                      {
+                          if(mov[d][c]==null)
+                          {
+                              mov[d][c]=mv1[i];
+                              z=1;
+                              break;
+                          }
+                      }
+                      if(z==1)
+                      break;
+                  }
+              }
+              
+              else if((mv1[i].getPrinciple()).compareTo("C")==0 )
+              {
+                int z=0;
+                loop:for(c=0;c<m;c++)
+                 { 
+                      int mid=(n-1)/2;
+                      
+                      while(mid>=0)
+                      {
+                          if(mov[c][mid]==null)
+                          { 
+                            mov[c][mid]=mv1[i];
+                            break loop;
+                          }
+                         
+                          else if(mov[c][n-1-mid]==null)
+                          { 
+                            mov[c][n-1-mid]=mv1[i];
+                            break loop;
+                          }
+                          mid--;
+                      } 
+                 }
+              } 
+              
+              else if((mv1[i].getPrinciple()).compareTo("SL")==0 )
+              {
+                 int high;
+                  int count=0;
+                  int max=0;
+                  int maxr=0;
+                  int maxc=0;
+                 loop: for(c=0;c<m;c++)
+                  {
+                      count=0;
+                      for(d=0;d<n;d++)
+                      {
+                        high=d;
+                        while(mov[c][high]==null && high<n)
+                        {
+                           count++;
+                           high++;
+                        }
+                        if(count>max)
+                        {
+                            max=count;
+                            maxr=c;
+                            maxc=d;
+                        }
+                        count=0;
+                      }
+                  }
+                  
+                  int z=maxc+(max-1)/2;
+                  mov[maxr][z]=mv1[i];
+              }
+              
+              else if((mv1[i].getPrinciple()).compareTo("CL")==0 )
+              {
+                  int maxc=-1,maxd=-1,high=0,low=0,count=0,max=0;
+                  for(c=0;c<m;c++)
+                  {
+                      for(d=0;d<n;d++)
+                      {
+                        if(mov[c][d]==null)
+                        {
+                             count=1;high=d+1;low=0;
+                             if(d>0)
+                             low=d-1;
+                             
+                            while(high<n && mov[c][high]!=null)
+                            {
+                                    count++;
+                                    high++;
+                            } 
+                            
+                            while(low>=0 && mov[c][low]!=null)
+                            {
+                                    count++;
+                                    low--;
+                            }
+                            
+                            if(count>max)
+                            {
+                                max=count;
+                                maxc=c;
+                                maxd=d;
+                            }
+                        }
+                      }
+                  }
+                  mov[maxc][maxd]=mv1[i];
+              }
+            }
+          } 
+           int l=sc.nextInt();
+           
+           for(i=0;i<m;i++)     //printing output
+           {
+               for(j=0;j<n;j++)
+               if(mov[i][j]!=null)
+               mov[i][j].printOutput();
+               else
+               System.out.println("-1");
+           }
+           
+           for(i=0;i<r;i++)
+           {
+               recept[i].print(mov,m,n);
+           }
+           t--;
+       }
+    }
+}
