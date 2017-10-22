@@ -1,1 +1,411 @@
-q2
+import java.util.*;
+ 
+class movie{     //parent class of all type of audience
+    private String name,principle;
+    movie(String Name,String Principle){
+        name=Name;
+        principle=Principle;
+    }
+    public String getName(){
+        return name;
+        
+    }
+    public String getPrinciple(){
+        return principle;
+    }
+    
+    public void printOutput(){  //overriding of printOutput function
+        
+    }
+    
+    public void setArr(int d,int m,int y,String s1,String s2)   //overriding of setArr function
+    {
+        
+    }
+     
+}
+ 
+class event extends movie {    //class of event type person
+    private int d,m,y;
+    private String ev,ven;
+    event(String Name,int D,int M,int Y,String Ev,String Ven,String Principle){
+        super(Name,Principle);
+        d=D;
+        m=M;
+        y=Y;
+        ev=Ev;
+        ven=Ven;
+    }
+     
+    public String getName(){
+        return super.getName();
+    }
+    public String getPrinciple(){
+        return super.getPrinciple();
+    }
+    public String getEv(){
+        return ev;
+    }
+    public String getVen(){
+        return ven;
+    }
+    public int getD(){
+        return d;
+    }
+    public int getM(){
+        return m;
+    }
+    public int getY(){
+        return y;
+    }
+    
+    public void printOutput(){   //printOutput function
+        System.out.println(getName()+" "+getD()+"-"+getM()+"-"+getY()+" "+getEv()+" "+getVen());
+    }
+       
+}
+ 
+class breaker extends movie{  //class for breaker type person
+    private int expertise,horoscope;
+    
+    breaker(String Name,int Expertise,int Horoscope,String Principle){
+        super(Name,Principle);
+        expertise=Expertise;
+        horoscope=Horoscope;
+    }
+    public String getName(){
+         return super.getName();
+    }
+    public String getPrinciple(){
+        return super.getPrinciple();
+    }
+     public int getExpertise(){
+        return expertise;
+    }
+      public int getHoroscope(){
+        return horoscope;
+    } 
+      public void printOutput(){   //printOutput function
+        System.out.println(getName()+" "+getExpertise()+" "+getHoroscope());
+    }
+}
+ 
+class brand extends movie {  //class for brand type person
+    private String brandName,salesName;
+    
+    brand(String Name,String BrandName,String SalesName,String Principle){
+        super(Name,Principle);
+        brandName=BrandName;
+        salesName=SalesName;
+    }
+    public String getName(){
+         return super.getName();
+    }
+    public String getPrinciple(){
+        return super.getPrinciple();
+    }
+     public String getBrandName(){
+        return brandName;
+    }
+     public String getSalesName(){
+        return salesName;
+    }
+     
+      public void printOutput(){   //printOutput function
+        System.out.println(getName()+" "+getBrandName()+" "+getSalesName());
+    }
+    
+}
+ 
+ 
+class commoner extends movie{   //class for commoner type person
+    commoner(String Name,String Principle){
+        super(Name,Principle);
+    }
+    public String getName(){
+        return super.getName();
+    }
+    public String getPrinciple(){
+        return super.getPrinciple();
+    }
+    public void printOutput(){   //printOutput function
+         System.out.println(getName());
+    }
+}
+ 
+ 
+class VIP extends movie{   //class for VIP type person 
+    private int p;
+    private int arr1[][]=new int[500][3];
+    private String arr2[][]=new String[500][2];
+    
+    VIP(String Name,int P,String Principle){
+        super(Name,Principle);
+        p=P;
+    }
+    private int l=0;
+    public void setArr(int d,int m,int y,String s1,String s2)  //setter function of 2d array
+    {
+        arr1[l][0]=d;
+        arr1[l][1]=m;
+        arr1[l][2]=y;
+        arr2[l][0]=s1;
+        arr2[l][1]=s2;
+        l++;
+    }
+    
+    public String getName(){
+        return super.getName();
+    }   
+    public String getPrinciple(){
+        return super.getPrinciple();
+    }
+    public void printOutput(){   //printOutput function
+         
+         System.out.println( getName() );
+         for(int i=0;i<p;i++)
+         {
+             System.out.println(arr1[i][0]+"-"+arr1[i][1]+"-"+arr1[i][2]+" "+arr2[i][0]+" "+arr2[i][1]); 
+         }
+    }
+}
+ 
+ 
+class TestClass{
+ 
+    public static void main(String[] args) {   //main function
+       int t;
+       Scanner sc = new Scanner(System.in);
+       t=sc.nextInt();
+       while(t!=0)               //while body
+       {
+           int m,n,i,j;
+           m=sc.nextInt();
+           n=sc.nextInt();
+           int k=sc.nextInt();
+           movie mv[]=new movie[k+2];
+           
+           for(i=0;i<k;i++)    //taking input
+           {
+               String type=sc.next();
+               String principle=sc.next();
+               String name=sc.next();
+            
+               if( (type).compareTo("event")==0)   //taking input of event type
+               {
+                    int day,mon,year;
+                    String ev,ven;
+                    day=sc.nextInt();
+                    mon=sc.nextInt();
+                    year=sc.nextInt();
+                    ev=sc.next();
+                    ven=sc.next();
+                    
+                    mv[i]=new event(name,day,mon,year,ev,ven,principle);
+               }
+               
+               else if( (type).compareTo("breaker")==0)   //taking input of breaker type
+               {
+                    int expertise,horoscope;
+                    expertise=sc.nextInt();
+                    horoscope=sc.nextInt();
+                    mv[i]=new breaker(name,expertise,horoscope,principle);
+               }
+               else if( (type).compareTo("brand")==0)   //taking input of brand type
+               {
+                   String brandName,salesName;
+                   brandName=sc.next();
+                   salesName=sc.next();  
+                   mv[i]=new brand(name,brandName,salesName,principle);
+               }
+               else if( (type).compareTo("VIP")==0)   //taking input of VIP type
+               {
+                   int p;
+                   p=sc.nextInt();
+                    VIP v=new VIP(name,p,principle);    //intentiating VIP type object
+                   for(j=0;j<p;j++)
+                   {
+                       int day,mon,year;
+                       String ev,ven;
+                       day=sc.nextInt();
+                       mon=sc.nextInt();
+                       year=sc.nextInt();
+                       ev=sc.next();
+                       ven=sc.next();
+                       
+                       v.setArr(day,mon,year,ev,ven);
+                   }
+                   mv[i]=v;
+                   
+               }
+               
+                else if( (type).compareTo("commoner")==0)   //taking input of commoner type
+               {
+                   mv[i] = new commoner(name,principle);
+               }
+               
+           }
+           
+           movie mov[][]=new movie[10000][10000];  //2D matrix which act auditorium hall
+           int c,d;
+            
+          for(i=0;i<k;i++)    //sitting of different types of pepople
+          {
+              if( (mv[i].getPrinciple()).compareTo("BB")==0 )  //backbencher sitting principle
+              { 
+                  int z=0;
+                  for(c=m-1;c>=0;c--)
+                  {
+                      for(d=n-1;d>=0;d--)
+                      {
+                          if(mov[c][d]==null)
+                          {
+                              mov[c][d]=mv[i];
+                              z=1;
+                              break;
+                          }
+                      }
+                      if(z==1)
+                      break;
+                  } 
+              }
+              
+              else if((mv[i].getPrinciple()).compareTo("EL")==0 )//entry loving sitting principle
+              {
+                   int z=0;
+                  for(c=0;c<n;c++)
+                  {
+                      for(d=0;d<m;d++)
+                      {
+                          if(mov[d][c]==null)
+                          {
+                              mov[d][c]=mv[i];
+                              z=1;
+                              break;
+                          }
+                      }
+                      if(z==1)
+                      break;
+                  }
+              }
+              
+              else if((mv[i].getPrinciple()).compareTo("C")==0 )//comoner sitting principle
+              {
+                int z=0;
+                loop:for(c=0;c<m;c++)
+                 { 
+                      int mid=(n-1)/2;
+                      
+                      while(mid>=0)
+                      {
+                          if(mov[c][mid]==null)
+                          { 
+                            mov[c][mid]=mv[i];
+                            break loop;
+                          }
+                         
+                          else if(mov[c][n-1-mid]==null)
+                          { 
+                            mov[c][n-1-mid]=mv[i];
+                            break loop;
+                          }
+                          mid--;
+                      } 
+                 }
+              } 
+              
+              else if((mv[i].getPrinciple()).compareTo("SL")==0 )//sparsh loving sitting principle
+              {
+                 int high;
+                  int count=0;
+                  int max=0;
+                  int maxr=0;
+                  int maxc=0;
+                 loop: for(c=0;c<m;c++)
+                  {
+                      count=0;
+                      for(d=0;d<n;d++)
+                      {
+                        high=d;
+                        while(mov[c][high]==null && high<n)
+                        {
+                           count++;
+                           high++;
+                        }
+                        if(count>max)
+                        {
+                            max=count;
+                            maxr=c;
+                            maxc=d;
+                        }
+                        count=0;
+                      }
+                  }
+                  
+                  int z=maxc+(max-1)/2;
+                  mov[maxr][z]=mv[i];
+              }
+              
+              else if((mv[i].getPrinciple()).compareTo("CL")==0 )//crowd loving sitting principle
+              {
+                  int maxc=-1,maxd=-1,high=0,low=0,count=0,max=0;
+                  for(c=0;c<m;c++)
+                  {
+                      for(d=0;d<n;d++)
+                      {
+                        if(mov[c][d]==null)
+                        {
+                             count=1;high=d+1;low=0;
+                             if(d>0)
+                             low=d-1;
+                             
+                            while(high<n && mov[c][high]!=null)
+                            {
+                                    count++;
+                                    high++;
+                            } 
+                            
+                            while(low>=0 && mov[c][low]!=null)
+                            {
+                                    count++;
+                                    low--;
+                            }
+                            
+                            if(count>max)
+                            {
+                                max=count;
+                                maxc=c;
+                                maxd=d;
+                            }
+                        }
+                      }
+                  }
+                  mov[maxc][maxd]=mv[i];
+              }
+          }
+          
+           int r;
+           r=sc.nextInt();
+           String recept[]=new String[r+2];      //array for receptionist
+           String receptType[]=new String[r+2];   //array for receptionist type
+           for(i=0;i<r;i++)
+           {
+               receptType[i]=sc.next();
+               recept[i]=sc.next();
+           }
+           int l=sc.nextInt();
+           
+           for(i=0;i<m;i++)     //printing output
+           {
+               for(j=0;j<n;j++)
+               if(mov[i][j]!=null)
+               mov[i][j].printOutput();
+               else
+               System.out.println("-1");
+           }
+           t--;
+       }
+       
+    }
+    
+}
