@@ -1,1 +1,249 @@
-q1
+import java.util.*;
+ 
+class movie{     //parent class of all type of audience
+    private String name;
+    movie(String Name){
+        name=Name;
+    }
+    public String getName(){
+        return name;
+        
+    }
+    public void printOutput(){  //overriding of printOutput function
+        
+    }
+    public void setArr(int d,int m,int y,String s1,String s2)   //overriding of setArr function
+    {
+        
+    }
+     
+}
+ 
+class event extends movie {    //class of event type person
+    private int d,m,y;
+    private String ev,ven;
+    event(String Name,int D,int M,int Y,String Ev,String Ven){
+        super(Name);
+        d=D;
+        m=M;
+        y=Y;
+        ev=Ev;
+        ven=Ven;
+    }
+     
+    public String getName(){
+        return super.getName();
+    }
+    public String getEv(){
+        return ev;
+    }
+    public String getVen(){
+        return ven;
+    }
+    public int getD(){
+        return d;
+    }
+    public int getM(){
+        return m;
+    }
+    public int getY(){
+        return y;
+    }
+    
+    public void printOutput(){   //printOutput function
+        System.out.println(getName()+" "+getD()+"-"+getM()+"-"+getY()+" "+getEv()+" "+getVen());
+    }
+       
+}
+ 
+class breaker extends movie{  //class for breaker type person
+    private int expertise,horoscope;
+    
+    breaker(String Name,int Expertise,int Horoscope){
+        super(Name);
+        expertise=Expertise;
+        horoscope=Horoscope;
+    }
+    public String getName(){
+         return super.getName();
+    }
+     public int getExpertise(){
+        return expertise;
+    }
+      public int getHoroscope(){
+        return horoscope;
+    } 
+      public void printOutput(){   //printOutput function
+        System.out.println(getName()+" "+getExpertise()+" "+getHoroscope());
+    }
+}
+ 
+class brand extends movie {  //class for brand type person
+    private String brandName,salesName;
+    
+    brand(String Name,String BrandName,String SalesName){
+        super(Name);
+        brandName=BrandName;
+        salesName=SalesName;
+    }
+    public String getName(){
+         return super.getName();
+    }
+     public String getBrandName(){
+        return brandName;
+    }
+     public String getSalesName(){
+        return salesName;
+    }
+     
+      public void printOutput(){   //printOutput function
+        System.out.println(getName()+" "+getBrandName()+" "+getSalesName());
+    }
+    
+}
+ 
+ 
+class commoner extends movie{   //class for commoner type person
+    commoner(String Name){
+        super(Name);
+    }
+    public String getName(){
+        return super.getName();
+    }
+    public void printOutput(){   //printOutput function
+         System.out.println(getName());
+    }
+}
+ 
+ 
+class VIP extends movie{   //class for VIP type person 
+    private int p;
+    private int arr1[][]=new int[500][3];
+    private String arr2[][]=new String[500][2];
+    
+    VIP(String Name,int P){
+        super(Name);
+        p=P;
+    }
+    private int l=0;
+    public void setArr(int d,int m,int y,String s1,String s2)  //setter function of 2d array
+    {
+        arr1[l][0]=d;
+        arr1[l][1]=m;
+        arr1[l][2]=y;
+        arr2[l][0]=s1;
+        arr2[l][1]=s2;
+        l++;
+    }
+    
+    public String getName(){
+        return super.getName();
+    }   
+    
+    public void printOutput(){   //printOutput function
+         
+         System.out.println( getName() );
+         for(int i=0;i<p;i++)
+         {
+             System.out.println(arr1[i][0]+"-"+arr1[i][1]+"-"+arr1[i][2]+" "+arr2[i][0]+" "+arr2[i][1]); 
+         }
+    }
+}
+ 
+ 
+class TestClass{
+ 
+    public static void main(String[] args) {   //main function
+       int t;
+       Scanner sc = new Scanner(System.in);
+       t=sc.nextInt();
+       while(t!=0)               //while body
+       {
+           int m,n,i,j;
+           m=sc.nextInt();
+           n=sc.nextInt();
+           int k=sc.nextInt();
+           movie mv[]=new movie[k+2];
+           
+           for(i=0;i<k;i++)    //taking input
+           {
+               String type=sc.next();
+               String BB=sc.next();
+               String name=sc.next();
+            
+               if( (type).compareTo("event")==0)   //taking input of event type
+               {
+                    int day,mon,year;
+                    String ev,ven;
+                    day=sc.nextInt();
+                    mon=sc.nextInt();
+                    year=sc.nextInt();
+                    ev=sc.next();
+                    ven=sc.next();
+                    
+                    mv[i]=new event(name,day,mon,year,ev,ven);
+               }
+               
+               else if( (type).compareTo("breaker")==0)   //taking input of breaker type
+               {
+                    int expertise,horoscope;
+                    expertise=sc.nextInt();
+                    horoscope=sc.nextInt();
+                    mv[i]=new breaker(name,expertise,horoscope);
+               }
+               else if( (type).compareTo("brand")==0)   //taking input of brand type
+               {
+                   String brandName,salesName;
+                   brandName=sc.next();
+                   salesName=sc.next();  
+                   mv[i]=new brand(name,brandName,salesName);
+               }
+               else if( (type).compareTo("VIP")==0)   //taking input of VIP type
+               {
+                   int p;
+                   p=sc.nextInt();
+                    VIP v=new VIP(name,p);    //intentiating VIP type object
+                   for(j=0;j<p;j++)
+                   {
+                       int day,mon,year;
+                       String ev,ven;
+                       day=sc.nextInt();
+                       mon=sc.nextInt();
+                       year=sc.nextInt();
+                       ev=sc.next();
+                       ven=sc.next();
+                       
+                       v.setArr(day,mon,year,ev,ven);
+                   }
+                   mv[i]=v;
+                   
+               }
+               
+                else if( (type).compareTo("commoner")==0)   //taking input of commoner type
+               {
+                   mv[i] = new commoner(name);
+               }
+               
+           }
+           
+           int r;
+           r=sc.nextInt();
+           String recept[]=new String[r+2];      //array for receptionist
+           String receptType[]=new String[r+2];   //array for receptionist type
+           for(i=0;i<r;i++)
+           {
+               receptType[i]=sc.next();
+               recept[i]=sc.next();
+           }
+           int l=sc.nextInt();
+           
+           for(i=k-1;i>=0;i--)     //printing output
+           {
+              mv[i].printOutput();
+           }
+           t--;
+       }
+       
+    }
+    
+}
